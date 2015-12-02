@@ -1,4 +1,3 @@
-
 <?php
 
 class Juegos extends Controller {
@@ -10,30 +9,15 @@ class Juegos extends Controller {
 
     function load_list() {
 
-        $_info_juegos = $this->loadModel('empleados_model');
-        $_items_juegos = $_info_empleados->get();
+        $_info_juegos = $this->loadModel('juegos_model');
+        $_items_juegos = $_info_juegos->get();
         $template = $this->loadView($this->data['controller'] . '/load_list');
         $template->set('controlador', $this->data['controller']);
-        $template->set('items_empleados', $_items_empleados);
-
-
+        $template->set('items_juegos', $_items_juegos);
         $template->render();
     }
 
     function load_add() {
-
-
-
-        $_info_paises = $this->loadModel('ubigeo_model');
-        $_items_paises = $_info_paises->get_paises();
-
-        $_items_departamentos = $_info_paises->get_departamentos();
-
-
-        $_info_profesion = $this->loadModel('profesion_model');
-        $_items_profesion = $_info_profesion->get();
-
-
 
         $template = $this->loadView($this->data['controller'] . '/load_add');
         $template->set('controlador', $this->data['controller']);
@@ -43,13 +27,6 @@ class Juegos extends Controller {
         $template->render();
     }
 
-    function load_update($id) {
-
-
-        $template = $this->loadView($this->data['controller'] . '/load_update');
-        $template->set('controlador', $this->data['controller']);
-        $template->render();
-    }
 
 }
 ?>
