@@ -21,13 +21,20 @@ class Juegos extends Controller {
 
         $template = $this->loadView($this->data['controller'] . '/load_add');
         $template->set('controlador', $this->data['controller']);
-        $template->set('items_paises', $_items_paises);
-        $template->set('items_profesion', $_items_profesion);
-        $template->set('items_departamentos', $_items_departamentos);
         $template->render();
     }
 
-
+    function action_add()
+    {
+        $_post = $_POST;
+        $_result = $this->loadModel('juegos_model');
+        $_item = $_result->add($_post);
+        if ($_item) {
+            exit(json_encode(array("status"=>TRUE,"mensaje"=>"Se registro en base de datos")));
+        }else            
+            exit(json_encode(array("status"=>FALSE,"mensaje"=>"Error al registrar")));
+    
+    }
 }
 ?>
 

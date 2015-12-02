@@ -28,8 +28,8 @@ $(function(){
         Common._doAjax(_url,_form.serializeArray(),
             function(rs){
                 if (Boolean(rs.status)) {
-                    alert("Se inserto Cliente");
-                    window.location= baseURL+"juegos/"+rs.url
+                    alert(rs.mensaje);
+                    window.location= baseURL+"juegos/load_list";
                 };
             },
             function(rs){
