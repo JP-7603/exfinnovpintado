@@ -1,6 +1,6 @@
 $(function(){
 
-  var baseURL="http://localhost/examennov/";
+  var baseURL="http://exfinnovpintado.herokuapp.com/";
 
 	var Common={
 		_doAjax:function(_url,_data,f_done,f_error){
